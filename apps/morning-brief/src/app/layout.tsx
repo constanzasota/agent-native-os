@@ -39,12 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <img
                 src="/assets/aibuildlab-logo.svg"
                 alt="AI Build Lab"
-                onError={(e) => {
-                  const t = e.currentTarget;
-                  t.style.display = "none";
-                  const fallback = t.nextElementSibling as HTMLElement | null;
-                  if (fallback) fallback.style.display = "flex";
-                }}
               />
               <div className="logo-fallback">
                 <span className="slash">/</span>
