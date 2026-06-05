@@ -12,7 +12,12 @@ type LatestData = {
 async function loadLatest(): Promise<LatestData> {
   try {
     const sb = supabaseAdmin();
-    const briefsRes = await sb.from("briefs").select("*").order("date", { ascending: false }).limit(8);
+    const briefsRes = await sb
+      .from("briefs")
+      .select("*")
+      .order("date", { ascending: false })
+      .order("created_at", { ascending: false })
+      .limit(8);
     const deliveryRes = await sb
       .from("delivery_logs")
       .select("id, channel, ok, created_at, error")
